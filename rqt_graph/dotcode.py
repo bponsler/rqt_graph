@@ -35,11 +35,12 @@
 import re
 import copy
 
-import rosgraph.impl.graph
-import roslib
+# TODO: need to handle uses of rosgraph and roslib
+#import rosgraph.impl.graph
+#import roslib
 import math
 
-import rospy
+import rclpy
 import pydot
 
 # node/node connectivity
@@ -87,7 +88,8 @@ class RosGraphDotcodeGenerator:
     def __init__(self):
         try:
             from rosgraph_msgs.msg import TopicStatistics
-            self.stats_sub = rospy.Subscriber('/statistics', TopicStatistics, self.statistics_callback)
+            node = rclpy.create_node("ros_graph_dotcode_generator")
+            self.stats_sub = node.create_subscriber('/statistics', TopicStatistics, self.statistics_callback)
         except ImportError:
             # not supported before Indigo
             pass
