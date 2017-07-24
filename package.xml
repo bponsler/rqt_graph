@@ -20,7 +20,7 @@
 
   <author>Dirk Thomas</author>
 
-  <buildtool_depend>ament</buildtool_depend>
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
   <exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
   <exec_depend>python-rospkg</exec_depend>
